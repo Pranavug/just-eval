@@ -202,12 +202,14 @@ def score_eval(args):
     results = []
     for itemA, itemB in zip(candidates, references):
         instruction = itemA["instruction"] 
+        ground_truth = itemB["ground_truth"]
         if args.mode == "score_multi":
             A = itemA["output"]
             A = shorten(A)
             prompt = Template(MULTI_SCORE_TEMPLATE).substitute(
                 instruction = instruction, 
-                candidate = A
+                candidate = A,
+                ground_truth = ground_truth
             )
         elif args.mode == "score_safety":
             A = itemA["output"]

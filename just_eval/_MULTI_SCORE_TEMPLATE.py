@@ -1,8 +1,11 @@
 MULTI_SCORE_TEMPLATE = """\
-Please act as an impartial judge and evaluate the quality of the responses provided. You will rate the quality of the output on multiple aspects such as Helpfulness, Clarity, Factuality, Depth, and Engagement.
+Please act as an impartial judge and evaluate the quality of the responses provided as compared to the provided ground truth. You will rate the quality of the output on multiple aspects such as Helpfulness, Clarity, Factuality, Depth, and Engagement.
 
 ## Query: 
 ${instruction}
+
+## Ground Truth:
+${ground_truth}
  
 ## Output:
 ${candidate}
@@ -12,13 +15,13 @@ ${candidate}
 
 ### Aspects 
 
-- Helpfulness: Rate the response based on how well it addresses the user's query and provides a relevant solution. A score of 5 indicates the answer fully aids the user, while a 1 suggests it offers little to no help.
+- Helpfulness: Rate the response based on how well it addresses the user's query and provides a solution relevant to the ground truth. A score of 5 indicates the answer fully aids the user, while a 1 suggests it offers little to no help.
 
 - Clarity: Rate the response based on how well-structured it is, with ideas presented in a clear and coherent manner. A high score of 5 means the answer is clear and logically structured, while a 1 suggests a disjointed or confusing reply.  
 
-- Factuality: Evaluate the factual accuracy and truthfulness of the information provided. A perfect 5 indicates the information is entirely correct and accurate, while a 1 suggests it has significant factual errors.
+- Factuality: Evaluate the factual accuracy and truthfulness of the information provided as compared to the provided ground truth. A perfect 5 indicates the information is entirely correct and accurate, while a 1 suggests it has significant factual errors.
 
-- Depth: Determine the level of detail and thoroughness in the response. A score of 5 means the answer delves deeply into the topic, while a 1 indicates it barely scratches the surface.
+- Depth: Determine the level of detail and thoroughness in the response as compared to the provided ground truth. A score of 5 means the answer delves deeply into the topic, while a 1 indicates it barely scratches the surface.
 
 - Engagement: Assess how engaging and natural the response sounds in a conversational context. A high score of 5 reflects a response that feels engaging and human-like in its tone, while a 1 indicates a robotic or boring reply.
 
